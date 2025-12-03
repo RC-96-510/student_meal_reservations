@@ -1,0 +1,23 @@
+<odoo>
+
+  <record id="view_inherit_product_product" model="ir.ui.view">
+    <field name="name">view_inherit_product_product</field>
+    <field name="model">product.product</field>
+    <field name="inherit_id" ref="product.product_normal_form_view"/>  <!-- herencia -->
+    <field name="arch" type="xml">
+      <xpath expr="//notebook" position="inside">
+        <page string="School meal">
+            <group>
+              <field name="description"/>
+              <field name="ingredients"/>
+              <field name="small_portion"/>
+              <field name="large_portion"/>
+            </group>
+        </page>
+      </xpath>
+        
+    </field>
+  </record>
+
+</odoo>
+

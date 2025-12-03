@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="student_id_paperformat" model="report.paperformat">
+        <field name="name">Student ID</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">54</field>   
+        <field name="page_width">86</field>    
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">1</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="student_id_print" model="ir.actions.report">
+        <field name="name">Student ID</field>
+        <field name="model">gsie.family</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">student_meal_reservations.print_student_id</field>
+        <field name="report_file">student_meal_reservations.print_student_id</field>
+        <field name="print_report_name">'Student ID'</field>
+        <field name="paperformat_id" ref="student_meal_reservations.student_id_paperformat" />
+        <field name="binding_model_id" ref="gsie_english_castle_module.model_gsie_family"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="print_student_id">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                <t t-foreach="o.partner_ids" t-as="line">
+                    <div class="page" style="page-break-after: always;">
+                        <table style="width:100%;" class="table-borderless">
+                            <tr>
+                                <td colspan="2" style="text-align:center;">
+                                    <span 
+                                        style="font-family: 'Montserrat', 
+                                            'League Spartan', 'Bebas Neue', sans-serif;
+                                            font-weight: bold;
+                                            font-stretch: condensed;
+                                            font-size: 16pt;
+                                            color: #B0202A;"
+                                    >HOME OF THE STALLIONS</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:50%; text-align:center;">
+                                    <p style="margin-bottom:0px;">
+                                        <img 
+                                            t-att-src="'/student_meal_reservations/static/img/Logo_EC.jpeg'" 
+                                            style="width:130px; height:150px;"
+                                        />
+                                    </p>
+                                    <!-- <p style="margin-bottom:0px; margin-top:-15px;">
+                                        <span 
+                                            style="
+                                                font-family: 'Montserrat', 
+                                                    'League Spartan', 'Bebas Neue', sans-serif;
+                                                font-weight: bold;
+                                                font-stretch: condensed;
+                                                font-size: 10pt;
+                                                color: #B0202A;
+                                                border-top: 2px solid #008080;
+                                                border-bottom: 2px solid #008080;
+                                                display: inline-block;
+                                                width: 100%;
+                                                text-align: center;"
+                                        >BILINGUAL SCHOOL</span>
+                                    </p> -->
+                                    <p style="margin-bottom:0px; margin-top:-25px;">
+                                        <span 
+                                            style="font-family: 'Montserrat', 'League Spartan', 'Bebas Neue', sans-serif;
+                                                font-weight: bold;
+                                                font-stretch: condensed;
+                                                font-size: 10pt;
+                                                border-bottom: 2px solid #000;
+                                                display: inline-block;
+                                                width: 100%;
+                                                text-align: center;
+                                                text-transform: uppercase;"
+                                            t-field="line.name"
+                                        />
+                                    </p>
+                                </td>
+                                <td style="width:50%; text-align:right;">
+                                    <img 
+                                        t-if="line.image_1920" 
+                                        t-att-src="'data:image/png;base64,%s' % to_text(line.image_1920)" 
+                                        style="width:150px; height:130px;"
+                                        alt="Employee Image"
+                                    />
+                                    <p style="margin-bottom:0px; margin-top:0px;text-align:center;">
+                                        <span 
+                                            style="font-family: 'Montserrat', 'League Spartan', 'Bebas Neue', sans-serif;
+                                                font-weight: bold;
+                                                font-stretch: condensed;
+                                                font-size: 10pt;
+                                                color: #008080;"
+                                            t-field="line.codigo_estudiante"
+                                        />
+                                    </p>
+                                    <img 
+                                        t-if="line.codigo_estudiante" 
+                                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', line.codigo_estudiante, 600, 120)" 
+                                        style="height:20pt; width:100%;"
+                                    />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="page" style="page-break-after: always;">
+                        <table style="width:100%;" class="table-borderless">
+                            <tr>
+                                <td style="
+                                    font-family: 'Montserrat', 'League Spartan', 'Bebas Neue', sans-serif;
+                                    font-weight: bold;
+                                    font-size: 8pt;
+                                    padding-left:10px;
+                                    padding-right:10px;
+                                    padding-bottom:10px;"
+                                >
+                                    <p style="margin-bottom:0px;">
+                                        -This card must be carried while on school property.
+                                    </p>
+                                    <p style="margin-top:0px;">
+                                        -This card is non-transferable and may only be used by 
+                                        the student whose name appears on the front.
+                                    </p> 
+                                    <p>
+                                        If found, please return to the main office immediately.
+                                    </p>
+                                    <p style="margin-bottom:0px;">
+                                        +504 2763-8624
+                                    </p>
+                                    <p style="margin-bottom:0px; margin-top:0px;">
+                                        informacion@english-castle.com
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

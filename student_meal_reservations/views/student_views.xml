@@ -1,0 +1,50 @@
+<odoo>
+  <record id="view_student_form" model="ir.ui.view">
+    <field name="name">school.student.form</field>
+    <field name="model">school.student</field>
+    <field name="arch" type="xml">
+      <form string="Student">
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="student_id"/>
+            <field name="credit_balance"/>
+          </group>
+          <notebook>
+            <page string="Reservations">
+              <!-- <field name="reservation_ids">
+                <tree>
+                  <field name="meal_id"/>
+                  <field name="portion_size"/>
+                  <field name="price"/>
+                  <field name="reserved_on"/>
+                </tree>
+              </field> -->
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_student_tree" model="ir.ui.view">
+    <field name="name">school.student.tree</field>
+    <field name="model">school.student</field>
+    <field name="arch" type="xml">
+      <tree string="Students">
+        <field name="name"/>
+        <field name="student_id"/>
+        <field name="credit_balance"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="action_student" model="ir.actions.act_window">
+    <field name="name">Students</field>
+    <field name="res_model">school.student</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  
+</odoo>
+

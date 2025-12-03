@@ -1,0 +1,33 @@
+<odoo>
+
+  <!-- Admin Menu: Full Access -->
+  <record id="action_meal_admin" model="ir.actions.act_window">
+    <field name="name">Manage Meals</field>
+    <field name="res_model">school.meal</field>
+    <field name="view_mode">tree,form</field>
+    <field name="domain">[]</field>
+  </record>
+
+  <!-- <menuitem id="menu_meal_admin"
+            name="Meals (Admin)"
+            parent="menu_school_root"
+            action="action_meal_admin"
+            groups="student_meal_reservations.group_meal_admin"/> -->
+
+  <!-- Student Menu: Read-Only View -->
+  <record id="action_meal_student" model="ir.actions.act_window">
+    <field name="name">View Meals</field>
+    <field name="res_model">school.meal</field>
+    <field name="view_mode">tree</field>
+    <field name="domain">[]</field>
+    <field name="context">{'create': False}</field>
+  </record>
+
+  <!-- <menuitem id="menu_meal_student"
+            name="Meals (Student)"
+            parent="menu_school_root"
+            action="action_meal_student"
+            groups="student_meal_reservations.group_student_portal"/> -->
+
+</odoo>
+

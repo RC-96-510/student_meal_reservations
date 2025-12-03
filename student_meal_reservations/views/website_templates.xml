@@ -1,0 +1,46 @@
+<odoo>
+  <template id="menu_page_template" name="Elliot's Menu Page" inherit_id="website.layout">
+    <xpath expr="//main" position="inside">
+      <section class="container mt-4">
+        <h2 class="text-center mb-4">🍽️ Elliot's Shack – Monthly Meal Menu</h2>
+        <table width="100%">
+          <tr>
+            <td>
+              <p>Welcome, <t t-esc="request.env.user.name"/>!</p>
+            </td>
+            <td>
+              <div class="form-group">
+                <label for="menu_id">Select Menu</label>
+                <select name="menu_id" id="menu_id" class="form-control" required="1">
+                  <option value="">-- Choose Menu --</option>
+                  <t t-foreach="menus" t-as="menu">
+                    <option t-att-value="menu.id" t-esc="menu.name"/>
+                  </t>
+                </select>
+              </div>
+            </td>
+          </tr>
+        </table>
+        
+        <!--<t t-if="meals">
+          <t t-foreach="meals" t-as="meal">
+            <div class="card mb-3 p-4 shadow-sm border rounded">
+              <h4><t t-esc="meal.name"/></h4>
+              <p><strong>📅 Date:</strong> <t t-esc="meal.date.strftime('%A, %B %d, %Y')"/></p>
+              <p><strong>🍽️ Type:</strong> <t t-esc="meal.meal_type.capitalize()"/></p>
+              <p><strong>💵 Price:</strong> Small: <t t-esc="meal.small_portion_price"/> HNL | Large: <t t-esc="meal.large_portion_price"/> HNL</p>
+              <p><strong>🔥 Calories:</strong> <t t-esc="meal.calories"/></p>
+              <p><strong>⚠️ Allergens:</strong> <t t-esc="meal.allergens"/></p>
+              <p><strong>✅ Nutrition Tags:</strong> <t t-esc="meal.nutrition_tags"/></p>
+            </div>
+          </t>
+        </t>
+        <t t-if="not meals">
+          <p>No meals are currently available.</p>
+        </t>-->
+      </section>
+    </xpath>
+  </template>
+</odoo>
+
+
