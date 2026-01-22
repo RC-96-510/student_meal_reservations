@@ -1,0 +1,114 @@
+<!-- views/res_partner_view.xml -->
+<odoo>
+    <data>
+        <record id="view_partnerec_form_inherited_ec" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.hide.fields.ec</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <!-- campos ocultos-->
+                <xpath expr="//field[@name='function']" position="replace"/>
+                <xpath expr="//field[@name='website']" position="replace"/>
+                <xpath expr="//field[@name='title']" position="replace"/>
+                <!-- <xpath expr="//field[@name='vat']" position="replace"/> -->
+
+                <xpath expr="//field[@name='vat']" position="after">
+                    
+                    <field name="es_alumno"/>
+                    
+
+                </xpath>
+                <!-- Herencia de la vista de suscripciones -->
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="action_retirar" attrs="{'invisible': [('state', '=', 'withdrawn')]}" 
+                        type="object" string="Dar de Baja" class="btn-primary"/>
+                    </header>
+                    
+                </xpath>
+
+                 <xpath expr="//notebook" position="inside">
+                    <page string="Información Adicional del alumno" attrs="{'invisible': [('es_alumno', '=', False)]}">
+                        <group>
+                            <group>
+                                <field name="citizenship"/>
+                                <field name="birthdate"/>
+                                <field name="genero"/> 
+                                <field name="family_id"  placeholder="Se asigna automáticamente desde gestión académica " />                             
+
+                            </group>
+                            <group>           
+                                <field name="grado_id" readonly="1"/>
+                                <field name="category_id" string="Categoría" readonly="1"/>
+                                <field name="placement"/>
+                                <field name="state"/>
+                                <field name="codigo_estudiante"  placeholder="El código de estudiante se genera automáticamente"/>
+
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!-- Herencia de la vista de suscripciones -->
+        <record id="view_sale_subscription_form_inherit_ec" model="ir.ui.view">
+            <field name="name">sale.subscription.form.inherit</field>
+            <field name="model">sale.subscription</field>
+            <field name="inherit_id" ref="sale_subscription.sale_subscription_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='partner_id']" position="after">
+                    <field name="family_id"/>
+                    <field name="familia"/>
+
+                </xpath>
+
+                <field name="partner_id" position="attributes">
+                    <attribute name="domain">[('state', '=', 'no_matriculado'), ('es_alumno', '=', True)]</attribute>
+                </field>
+
+                <xpath expr="//field[@name='template_id']" position="after">
+                    <field name="grado_id"/>
+                    
+
+                </xpath>
+                <xpath expr="//field[@name='date_start']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                </xpath>
+
+                <!-- Eliminar condición de invisibilidad en el campo 'date' -->
+                <xpath expr="//field[@name='date']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                </xpath>
+
+                <!-- Eliminar condición de invisibilidad en el label 'Date of Next Invoice' -->
+                <xpath expr="//label[@for='recurring_next_date']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                </xpath>
+
+                <!-- Eliminar condición de invisibilidad en el div -->
+                <xpath expr="//*[contains(@attrs, 'stage_category')]" position="attributes">
+                    <attribute name="attrs">{}</attribute> <!-- Eliminar invisibilidad en el div -->
+                </xpath>
+
+                <!-- Eliminar condición de invisibilidad en el campo 'recurring_next_date' -->
+                <xpath expr="//field[@name='recurring_next_date']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                </xpath>
+
+                <!-- Eliminar condición de invisibilidad en el botón 'Generate Invoice' -->
+                <xpath expr="//button[@name='generate_recurring_invoice']" position="attributes">
+                    <attribute name="attrs">{}</attribute>
+                </xpath>
+
+  
+            </field>
+        </record>
+
+
+       
+
+    
+
+    </data>
+</odoo>

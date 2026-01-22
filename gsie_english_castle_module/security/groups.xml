@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data>
+<!--GESTION DE ESTACIONES-->
+    <!-- **************************************************************************-->
+    <!-- CONFIGURACIÓN -->
+	<record model="ir.module.category" id="module_gsie_english_castle_module">
+        <field name="name">Gestión Académica</field>
+        <field name="description">English Castle</field>
+        <field name="sequence">4</field>
+	</record>
+
+	<!--grupo estaciones -->
+    <record id="group_englishc_manager" model="res.groups">
+        <field name="category_id" ref="module_gsie_english_castle_module"/>
+        <field name="name">Permisos Gestión Académica (Manager)</field>
+    </record>
+
+    <record id="group_englishc_user" model="res.groups">
+        <field name="category_id" ref="module_gsie_english_castle_module"/>
+        <field name="name">Permisos Gestión Académica (Restringido)</field>
+    </record>
+    <record id="group_englishc_user_hide" model="res.groups">
+        <field name="category_id" ref="module_gsie_english_castle_module"/>
+        <field name="name">Mostrar en menú de aplicaciones</field>
+    </record>
+    <record id="group_ehglishc_super_admin" model="res.groups">
+        <field name="category_id" ref="module_gsie_english_castle_module"/>
+        <field name="name">Permisos Gestión Académica (Super Usuario)</field>
+    </record>
+
+    <record model="ir.module.category" id="module_gsie_english_castle_module1">
+        <field name="name">Gestión Contable - English Castle</field>
+        <field name="description">Contabilidad - English Castle</field>
+        <field name="sequence">5</field>
+	</record>
+
+
+    <record id="group_englishc_set_draft_super_admin" model="res.groups">
+        <field name="category_id" ref="module_gsie_english_castle_module1"/>
+        <field name="name">Ocultar botón para reestablecer a borrador asientos contables</field>
+    </record>
+
+    <record id="group_englishc_cancel_entry_super_admin" model="res.groups">
+        <field name="category_id" ref="module_gsie_english_castle_module"/>
+        <field name="name">Ocultar botón para cancelar asientos contables</field>
+    </record>
+    
+
+ 
+</data>
+</odoo>

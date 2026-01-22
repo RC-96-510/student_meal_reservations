@@ -95,37 +95,6 @@
                         </tr>
                     </table>
                 </div>
-                <div class="page" style="page-break-after: always;">
-                    <table style="width:100%;" class="table-borderless">
-                        <tr>
-                            <td style="
-                                font-family: 'Montserrat', 'League Spartan', 'Bebas Neue', sans-serif;
-                                font-weight: bold;
-                                font-size: 8pt;
-                                padding-left:10px;
-                                padding-right:10px;
-                                padding-bottom:10px;"
-                            >
-                                <p style="margin-bottom:0px;">
-                                    -This card must be carried while on school property.
-                                </p>
-                                <p style="margin-top:0px;">
-                                    -This card is non-transferable and may only be used by 
-                                    the student whose name appears on the front.
-                                </p> 
-                                <p>
-                                    If found, please return to the main office immediately.
-                                </p>
-                                <p style="margin-bottom:0px;">
-                                    +504 2763-8624
-                                </p>
-                                <p style="margin-bottom:0px; margin-top:0px;">
-                                    informacion@english-castle.com
-                                </p>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
             </t>
         </t>
     </template>

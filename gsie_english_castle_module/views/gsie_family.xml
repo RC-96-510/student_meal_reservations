@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="gsie_family_form_view" model="ir.ui.view">
+        <field name="name">gsie.family.form.view</field>
+        <field name="model">gsie.family</field>
+        <field name="arch" type="xml">
+            <form string="Familias">
+            <sheet>
+                    <div>
+                        <separator style="color:#009C96;font-style:bold; font-size: 20px" string="Datos de la familia"/>
+                    </div>
+                    <group colspan="4">
+                        <group cols="2">
+                            
+                            <field name="name" placeholder="El código de familia es generado automáticamente"/>
+
+                        </group>
+                        <group cols="2">
+                            
+                            <field name="code" placeholder="Ejemplo: Rodríguez Rivera"/>
+
+                        </group>
+                               
+                    </group>
+                    <notebook>
+                            <page string="Padres">
+                                <field name="padres_ids">
+                                    <tree editable="top">
+                                        <field name="name"  required="1"/>
+                                        <field name="identidad"/>
+                                        <field name="genero"/>  
+                                        <field name="phone"/>
+                                         <field name="email"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Alumnos">
+                                <field name="partner_ids"  context="{'default_family_id': id, 'default_es_alumno':True}">
+                                    <tree >
+                                        <field name="name"  required="1"/>
+                                        <field name="genero"/>  
+                                        <field name="phone"/>
+                                         <field name="email"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Suscripciones">
+                               <field name="suscripciones_ids">
+                                    <tree create="false">
+                                        <field name="display_name" string="Suscripción"/>
+                                        <field name="date_start"/>
+                                        <field name="date"/>
+                                        <field name="recurring_next_date"/>  
+                                        <field name="template_id"/>
+                                         
+                                    </tree>
+                                </field>
+                            </page>
+                        
+
+                    </notebook>
+
+            </sheet>
+            <div class="oe_chatter">                             
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+
+            </form>
+            
+
+        </field>
+    </record>
+
+     <!--Vista de la tabla con los datos del objeto -->
+    <record id="gsie_family_tree_view" model="ir.ui.view">
+        <field name="name">gsie.family.tree_view</field>
+        <field name="model">gsie.family</field>
+        <field name="arch" type="xml">
+            <tree string="family" >
+                <field name="code"  decoration-bf="1"/>
+                <field name="name"  decoration-bf="1"/>
+
+            </tree>
+        </field>
+    </record>
+
+    <!-- search -->
+    <record id="gsie_family_search_view" model="ir.ui.view">
+		<field name="name">gsie.family.search_view</field>
+		<field name="model">gsie.family</field>
+		<field name="arch" type="xml">
+			<search string="Buscar">
+				<field name="name"/>
+			</search>
+		</field>
+	</record>
+
+    <!-- Acción para abrir la view-->
+    <record id="action_gsie_family" model="ir.actions.act_window">
+        <field name="name">Familias</field>
+        <field name="res_model">gsie.family</field>
+         <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- <record id="gsie_english_castle_module.ec_menu_root_module" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('gsie_english_castle_module.group_englishc_user_hide')])]"/>
+    </record> -->
+  
+</odoo>

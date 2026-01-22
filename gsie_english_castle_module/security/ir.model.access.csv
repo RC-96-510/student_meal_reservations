@@ -1,0 +1,13 @@
+model_id:id,group_id:id,id,name,perm_read,perm_write,perm_create,perm_unlink
+model_gsie_family,group_englishc_manager,access_gsie_familias_manager,gsie.family,1,1,1,0
+model_gsie_family,group_englishc_user,access_gsie_familias_user,gsie.family,1,0,0,0
+model_gsie_family,group_ehglishc_super_admin,access_gsie_familias_super_admin,gsie.family,1,1,1,1
+,,,,,,,
+model_gsie_padres_ec,group_englishc_manager,access_gsie_padres_manager,gsie.padres.ec,1,1,1,0
+model_gsie_padres_ec,group_englishc_user,access_gsie_padres_user,gsie.padres.ec,1,0,0,0
+model_gsie_padres_ec,group_ehglishc_super_admin,access_gsie_padres_super_admin,gsie.padres.ec,1,1,1,1
+,,,,,,,
+model_gsie_grados,group_englishc_manager,access_gsie_grade_level_manager,gsie.grados,1,1,1,0
+model_gsie_grados,group_englishc_user,access_gsie_grade_level_user,gsie.grados,1,0,0,0
+model_gsie_grados,group_ehglishc_super_admin,access_gsie_grade_level_super_admin,gsie.grados,1,1,1,1
+

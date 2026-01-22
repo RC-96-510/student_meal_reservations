@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+<data>
+    <!--Icono del Menu principal-->
+	<menuitem id="ec_menu_root_module" 
+		name="Gestión Académica EC" 
+		sequence="1" 
+		web_icon="gsie_english_castle_module,static/description/ec.png"/>
+
+    <!-- MENU DE CONFIGURACIÓN-->
+
+     <menuitem
+        id="registro_management_main_ec"
+        name="Registro"
+        sequence="1"
+        parent="gsie_english_castle_module.ec_menu_root_module"
+       
+        
+    />
+
+    <menuitem
+        id="configuracion_management_main_ec"
+        name="Configuración"
+        sequence="2"
+        parent="gsie_english_castle_module.ec_menu_root_module"
+       
+        
+    />
+
+    <!-- MENU DE REPORTES-->
+
+     <menuitem
+        id="reports_management_main_ec"
+        name="Reportes"
+        sequence="3"
+        parent="gsie_english_castle_module.ec_menu_root_module"
+       
+        
+    />
+    <menuitem
+        id="menu_familiasec"
+        name="Familias"
+        sequence="1"
+        parent="gsie_english_castle_module.registro_management_main_ec"
+        action="action_gsie_family"
+    />
+    <menuitem
+        id="menu_padresec"
+        name="Padres"
+        sequence="2"
+        parent="gsie_english_castle_module.registro_management_main_ec"
+        action="action_gsie_padresec"
+    />
+    <!-- MENU DE REPORTES-->
+    <menuitem
+        id="menu_estudiantesec"
+        name="Estudiantes"
+        sequence="3"
+        parent="gsie_english_castle_module.registro_management_main_ec"
+        action="action_gsie_estudiantesec"
+        
+
+
+    />
+    
+    
+    <menuitem
+        id="menu_gradosec"
+        name="Grados/niveles"
+        sequence="1"
+        parent="gsie_english_castle_module.configuracion_management_main_ec"
+        action="action_gsie_grados"
+    />
+        
+</data>
+</odoo>

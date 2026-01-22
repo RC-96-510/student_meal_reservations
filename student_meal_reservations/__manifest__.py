@@ -10,7 +10,7 @@
     'website': "https://english-castle.com",
     'category': 'Education',
     'license': 'LGPL-3',
-    'depends': ['base', 'stock', 'website', 'gsie_english_castle_module'],
+    'depends': ['base', 'stock', 'gsie_english_castle_module'],
     'data': [
         # Security
         'security/security.xml',
@@ -18,7 +18,9 @@
 
         # Views - backend
         'reports/student_id.xml',
+        'reports/back_side_student_id.xml',
         'reports/student_id_contact.xml',
+        'reports/back_side_student_id_contact.xml',
         'wizard/summary_report.xml',
         'wizard/student_orders.xml',
         'views/student_views.xml',

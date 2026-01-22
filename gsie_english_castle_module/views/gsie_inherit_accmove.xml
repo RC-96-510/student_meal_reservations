@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Herencia de la vista account.view_move_form -->
+        <record id="view_move_form_inherit_draft_buttonec" model="ir.ui.view">
+            <field name="name">account.view_move_form.inherit.draft.button</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                 <!-- Modificar el botón Reset to Draft -->
+                
+                    <!-- Modificar el botón Reset to Draft -->
+                <xpath expr="//button[@name='button_draft']" position="replace">
+                     <button name="button_draft" string="Reset to Draft" type="object" clickable="1"
+                     groups="account.group_account_invoice, gsie_english_castle_module.group_englishc_set_draft_super_admin" attrs="{'invisible' : [('show_reset_to_draft_button', '=', False)]}"/>
+                </xpath>
+                
+            </field>
+        </record>
+        
+        
+    </data>
+</odoo>

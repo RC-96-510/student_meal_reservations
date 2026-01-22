@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="gsie_padresec_form_view" model="ir.ui.view">
+        <field name="name">gsie.padresec.form.view</field>
+        <field name="model">gsie.padres.ec</field>
+        <field name="arch" type="xml">
+            <form string="Padres de familia" create="false">
+            <sheet>
+                    <div>
+                        <separator style="color:#009C96;font-style:bold; font-size: 20px" string="Datos del Padre/Madre"/>
+                    </div>
+                    <group colspan="4">
+                        <group cols="2">
+                            
+                            <field name="name"/>
+                            <field name="identidad"/>
+                            <field name="genero"/>  
+                        </group>
+                        <group cols="2">
+                            
+                            <field name="phone"/>
+                            <field name="email"/> 
+                            <field name="parent_id"/> 
+
+                        </group>                       
+                    </group>
+            </sheet>
+            <div class="oe_chatter">                             
+                <field name="message_ids" widget="mail_thread"/>
+            </div>
+
+            </form>
+            
+
+        </field>
+    </record>
+
+     <!--Vista de la tabla con los datos del objeto -->
+    <record id="gsie_padresec_tree_view" model="ir.ui.view">
+        <field name="name">gsie.padresec.tree_view</field>
+        <field name="model">gsie.padres.ec</field>
+        <field name="arch" type="xml">
+            <tree string="Padres de familia" create="false">
+                <field name="name"  decoration-bf="1"/>
+                <field name="phone"/>
+                <field name="email"  decoration-bf="1"/> 
+            </tree>
+        </field>
+    </record>
+
+    <!-- search -->
+    <record id="gsie_padresec_search_view" model="ir.ui.view">
+		<field name="name">gsie.padresec.search_view</field>
+		<field name="model">gsie.padres.ec</field>
+		<field name="arch" type="xml">
+			<search string="Buscar">
+				<field name="name"/>
+			</search>
+		</field>
+	</record>
+
+    <!-- Acción para abrir la view-->
+    <record id="action_gsie_padresec" model="ir.actions.act_window">
+        <field name="name">Padres de familia</field>
+        <field name="res_model">gsie.padres.ec</field>
+         <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Acción para abrir la vie w de los alumnos-->
+    <record id="action_gsie_estudiantesec" model="ir.actions.act_window">
+        <field name="name">Estudiantes</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+         <field name="context">{'default_es_alumno': True}</field>
+    </record>
+
+    <!-- Acción para abrir la vie w de los alumnos-->
+    <record id="action_gsie_proveedorec" model="ir.actions.act_window">
+        <field name="name">Proveedores English Castle</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+         <field name="context">{'search_default_supplier': 1,'res_partner_search_mode': 'supplier', 
+         'default_is_company': True, 'default_supplier_rank': 1}</field>
+         
+    </record>
+
+    <record id="action_gsie_cliemterec" model="ir.actions.act_window">
+        <field name="name">Clientes English Castle</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,tree,form</field>
+         <field name="context">{'search_default_supplier': 1,'res_partner_search_mode': 'supplier', 
+         'default_is_company': True, 'default_supplier_rank': 1}</field>
+         
+    </record>
+
+
+</odoo>
