@@ -51,7 +51,7 @@
                                 <td style="width:50%; text-align:center;">
                                     <p style="margin-bottom:0px;">
                                         <img 
-                                            t-att-src="'/student_meal_reservations/static/img/Logo_EC.jpeg'" 
+                                            t-att-src="'/student_meal_reservations/static/img/Logo_EC.png'" 
                                             style="width:130px; height:150px;"
                                         />
                                     </p>
