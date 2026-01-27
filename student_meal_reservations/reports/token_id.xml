@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="token_id_paperformat" model="report.paperformat">
+        <field name="name">Token ID</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">54</field>   
+        <field name="page_width">86</field>    
+        <field name="orientation">Landscape</field>
+        <field name="margin_top">1</field>
+        <field name="margin_bottom">0</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">0</field>
+        <field name="header_line" eval="False"/>
+        <field name="header_spacing">0</field>
+        <field name="dpi">90</field>
+    </record>
+
+    <record id="token_id_print" model="ir.actions.report">
+        <field name="name">Token ID</field>
+        <field name="model">gsie.family</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">student_meal_reservations.print_token_id</field>
+        <field name="report_file">student_meal_reservations.print_token_id</field>
+        <field name="print_report_name">'Token ID'</field>
+        <field name="paperformat_id" ref="student_meal_reservations.token_id_paperformat" />
+        <field name="binding_model_id" ref="gsie_english_castle_module.model_gsie_family"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="print_token_id">
+        <t t-call="web.basic_layout">
+            <t t-foreach="docs" t-as="o">
+                
+                <div class="page" style="page-break-after: always;">
+                    <br/>
+                    <table style="width:100%;" class="table-borderless">
+                        <tr>
+                            <td style="width:100%; text-align:center;">
+                                <div style="margin:0; padding:0; line-height:0;">
+                                    <img 
+                                        t-att-src="'/student_meal_reservations/static/img/Logo_EC.png'" 
+                                        style="width:200px; height:250px;"
+                                    />
+                                </div>
+                                <div style="margin-top:-30px; margin-bottom:5px;">
+                                    <img 
+                                        t-if="o.name" 
+                                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 120)" 
+                                        style="height:20pt; width:100%;"
+                                    />
+                                </div>
+                                <span 
+                                    style="font-family: 'Montserrat', 
+                                        'League Spartan', 'Bebas Neue', sans-serif;
+                                        font-weight: 1500;
+                                        font-stretch: condensed;
+                                        font-size: 36pt;
+                                        color: #B0202A;"
+                                >2026</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

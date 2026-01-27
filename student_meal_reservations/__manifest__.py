@@ -21,6 +21,8 @@
         'reports/back_side_student_id.xml',
         'reports/student_id_contact.xml',
         'reports/back_side_student_id_contact.xml',
+        'reports/token_id.xml',
+        'reports/back_side_token_id.xml',
         'wizard/summary_report.xml',
         'wizard/student_orders.xml',
         'views/student_views.xml',
