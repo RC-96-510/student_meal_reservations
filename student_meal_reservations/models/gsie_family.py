@@ -4,4 +4,5 @@ class GsieFamilyInherit(models.Model):
     _inherit = "gsie.family"
 
     related_user_id = fields.Many2one("res.users", "Usuario Odoo")
+    family_name = fields.Char("Nombre familia")
 

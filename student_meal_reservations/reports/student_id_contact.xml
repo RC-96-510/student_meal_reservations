@@ -16,15 +16,28 @@
     <template id="print_student_id_contact">
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="o">
+                <style>
+                    @font-face {
+                        font-family: 'Limbus';
+                        src: url('/student_meal_reservations/static/font/Limbus-Demo.otf') format('truetype');
+                        font-weight: normal;
+                        font-style: normal;
+                    }
+
+                    @font-face {
+                        font-family: 'Limbus';
+                        src: url('/student_meal_reservations/static/font/Limbus-Demo.otf') format('truetype');
+                        font-weight: bold;
+                        font-style: normal;
+                    }
+                </style>
                 <div class="page" style="page-break-after: always;">
                     <table style="width:100%;" class="table-borderless">
                         <tr>
                             <td colspan="2" style="text-align:center;">
                                 <span 
-                                    style="font-family: 'Montserrat', 
-                                        'League Spartan', 'Bebas Neue', sans-serif;
+                                    style="font-family: 'Limbus';
                                         font-weight: bold;
-                                        font-stretch: condensed;
                                         font-size: 16pt;
                                         color: #B0202A;"
                                 >HOME OF THE STALLIONS</span>
@@ -34,7 +47,7 @@
                             <td style="width:50%; text-align:center;">
                                 <p style="margin-bottom:0px;">
                                     <img 
-                                        t-att-src="'/student_meal_reservations/static/img/Logo_EC.png'" 
+                                        t-att-src="'/student_meal_reservations/static/img/logo_ec.png'" 
                                         style="width:130px; height:150px;"
                                     />
                                 </p>

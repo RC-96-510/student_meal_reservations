@@ -16,33 +16,49 @@
     <template id="print_back_side_token_id">
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="o">
+                <style>
+                    @font-face {
+                        font-family: 'Limbus';
+                        src: url('/student_meal_reservations/static/font/Limbus-Demo.otf') format('truetype');
+                        font-weight: normal;
+                        font-style: normal;
+                    }
+
+                    @font-face {
+                        font-family: 'Limbus';
+                        src: url('/student_meal_reservations/static/font/Limbus-Demo.otf') format('truetype');
+                        font-weight: bold;
+                        font-style: normal;
+                    }
+                </style>
                 <div class="page" style="page-break-after: always;">
-                    <br/>
-                    <table style="width:100%;" class="table-borderless">
-                        <tr>
-                            <td style="width:100%; text-align:center;">
-                                <div style="margin:0; padding:0; line-height:0;">
-                                    <img 
-                                        t-att-src="'/student_meal_reservations/static/img/back_token.png'" 
-                                        style="width:150px; height:250px;"
-                                    />
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="width:100%;">
-                                <span
-                                    style="font-family: 'Montserrat', 
-                                        'League Spartan', 'Bebas Neue', sans-serif;
-                                        font-weight: bold;
-                                        font-size: 11pt;
-                                        color: #B0202A;
-                                        display: block;
-                                        text-align: center;"
-                                >HOME OF THE STALLIONS</span>
-                            </td>
-                        </tr>
-                    </table>
+                    <div style="padding-top:60px;">
+                        <table style="width:100%;" class="table-borderless">
+                            <tr>
+                                <td style="width:100%; text-align:center;">
+                                    <div style="margin:0; padding:0; line-height:0;">
+                                        <img 
+                                            t-att-src="'/student_meal_reservations/static/img/back_token.png'" 
+                                            style="width:150px; height:250px;"
+                                        />
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:100%;">
+                                    <span
+                                        style="
+                                            font-family: 'Limbus';
+                                            font-weight: bold;
+                                            font-size: 11pt;
+                                            color: #B0202A;
+                                            display: block;
+                                            text-align: center;"
+                                    >HOME OF THE STALLIONS</span>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </t>
         </t>

@@ -11,7 +11,12 @@
                 options="{'no_create':True, 'no_open':True}"
             />
         </field>
-     
+        <field name="code" position="after">
+            <field 
+                name="family_name"
+                required="True"
+            />
+        </field>
     </field>
   </record>
 

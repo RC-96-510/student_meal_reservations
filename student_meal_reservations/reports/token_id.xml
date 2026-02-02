@@ -32,7 +32,21 @@
     <template id="print_token_id">
         <t t-call="web.basic_layout">
             <t t-foreach="docs" t-as="o">
-                
+                <style>
+                    @font-face {
+                        font-family: 'Limbus';
+                        src: url('/student_meal_reservations/static/font/Limbus-Demo.otf') format('truetype');
+                        font-weight: normal;
+                        font-style: normal;
+                    }
+
+                    @font-face {
+                        font-family: 'Limbus';
+                        src: url('/student_meal_reservations/static/font/Limbus-Demo.otf') format('truetype');
+                        font-weight: bold;
+                        font-style: normal;
+                    }
+                </style>
                 <div class="page" style="page-break-after: always;">
                     <br/>
                     <table style="width:100%;" class="table-borderless">
@@ -40,8 +54,9 @@
                             <td style="width:100%; text-align:center;">
                                 <div style="margin:0; padding:0; line-height:0;">
                                     <img 
-                                        t-att-src="'/student_meal_reservations/static/img/Logo_EC.png'" 
+                                        t-att-src="'/student_meal_reservations/static/img/logo_ec.png'" 
                                         style="width:200px; height:250px;"
+
                                     />
                                 </div>
                                 <div style="margin-top:-30px; margin-bottom:5px;">
@@ -51,6 +66,16 @@
                                         style="height:20pt; width:100%;"
                                     />
                                 </div>
+                                <p style="margin-bottom:1px; margin-top:5px;text-align:center;">
+                                    <span 
+                                        style="font-family: 'Montserrat', 'League Spartan', 'Bebas Neue', sans-serif;
+                                            font-weight: bold;
+                                            font-stretch: condensed;
+                                            font-size: 10pt;
+                                            color: #008080;"
+                                        t-field="o.family_name"
+                                    />
+                                </p>
                                 <span 
                                     style="font-family: 'Montserrat', 
                                         'League Spartan', 'Bebas Neue', sans-serif;
