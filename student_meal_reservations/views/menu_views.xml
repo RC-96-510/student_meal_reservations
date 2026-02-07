@@ -85,11 +85,17 @@
                 attrs="{'readonly':[('state', 'in' , ('Available', 'Unavailable'))]}"
               />
 
-              <field
-                name="pdf_file"
-                filename="pdf_filename" 
-                widget="binary"
-              />
+              <div class="form-group">
+                <label for="pdf_file" class="form-label">Archivo (PDF o Imagen)</label>
+                <field
+                  name="pdf_file"
+                  widget="binary"
+                  accept="image/*,.pdf"
+                  attrs="{'readonly':[('state', 'in' , ('Available', 'Unavailable'))]}"
+                  help="Adjunta un archivo PDF o imagen. Los formatos soportados son: PDF, PNG, JPG, GIF, BMP, WebP"
+                  class="form-control"
+                />
+              </div>
               
             </group>
             <group>

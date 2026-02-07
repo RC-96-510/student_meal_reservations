@@ -2,7 +2,7 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_school_student,access.school.student,model_school_student,student_meal_reservations.group_meal_admin,1,1,1,1
 access_school_meal,access.school.meal,model_school_meal,student_meal_reservations.group_meal_admin,1,1,1,1
 access_school_meal_reservation,access.school.meal.reservation,model_school_meal_reservation,student_meal_reservations.group_meal_admin,1,1,1,1
-access_school_meal_student_readonly,access.school.meal.readonly,model_school_meal,student_meal_reservations.group_student_portal,1,0,0,0
+access_school_meal_student_readonly,access.school.meal.readonly,model_school_meal,student_meal_reservations.group_student_portal,1,1,1,1
 access_school_menu,access.school.menu,model_school_menu,group_meal_admin,1,1,1,1
 access_school_menu_detail,access.school.menu.detail,model_school_menu_detail,group_meal_admin,1,1,1,1
 access_school_menu_detail_products,access.school.menu.detail.products,model_school_menu_detail_products,group_meal_admin,1,1,1,1

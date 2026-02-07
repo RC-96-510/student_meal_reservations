@@ -3,6 +3,8 @@
 from odoo import models, fields, api
 from odoo.exceptions import UserError
 from datetime import datetime #This was added for topup functionality
+import mimetypes
+import base64
 
 class MealReservation(models.Model):
     _name = 'school.meal.reservation'
@@ -23,7 +25,7 @@ class MealReservation(models.Model):
     parent_id = fields.Many2one("res.users", "User", default=lambda self: self.env.user, tracking=True)
     family_id = fields.Many2one("gsie.family", "Family", tracking=True)
     reservation_date = fields.Date("Reservation date", tracking=True)
-    total_pay = fields.Float("Total pay", compute=getTotalPay, tracking=True)
+    total_pay = fields.Float("Total pay", compute=getTotalPay, store=True, tracking=True)
     state = fields.Selection([('Draft', 'Draft'),
                               ('Confirmed', 'Confirmed'),
                               ('Paid', 'Paid'),
@@ -42,7 +44,7 @@ class MealReservation(models.Model):
     
 
     def post_receipts_in_chatter(self):
-        """Adjunta todos los PDFs relacionados de school.meal.receipt en el chatter de cada reserva."""
+        """Adjunta todos los PDFs e imágenes relacionados de school.menu en el chatter de cada reserva."""
         
         for reservation in self:
             
@@ -54,13 +56,28 @@ class MealReservation(models.Model):
 
             for menu in menus:
                 if menu.pdf_file:
+                    # Detectar el tipo MIME del archivo automáticamente
+                    file_name = menu.name
+                    
+                    # Intentar detectar el tipo MIME por extensión
+                    mime_type, _ = mimetypes.guess_type(file_name)
+                    
+                    # Si no se detecta, usar un tipo por defecto según la extensión
+                    if not mime_type:
+                        if file_name.lower().endswith(('.pdf',)):
+                            mime_type = 'application/pdf'
+                        elif file_name.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp')):
+                            mime_type = 'image/png'  # Se ajustará automáticamente
+                        else:
+                            mime_type = 'application/octet-stream'
+                    
                     attachment = self.env['ir.attachment'].create({
-                        'name': menu.name,
+                        'name': file_name,
                         'type': 'binary',
                         'datas': menu.pdf_file,  # ya en base64
                         'res_model': reservation._name,
                         'res_id': reservation.id,
-                        'mimetype': 'application/pdf',
+                        'mimetype': mime_type,
                     })
                     attachment_ids.append(attachment.id)
 
@@ -112,11 +129,7 @@ class MealReservationStudent(models.Model):
 
     @api.depends("school_meal_reservation_products_ids.total")
     def getTotalPay(self):
-        total = 0
-        for r in self.school_meal_reservation_products_ids:
-            total += r.total
-        
-        self.total_pay = total
+        self.total_pay = sum(r.total for r in self.school_meal_reservation_products_ids)
 
 
     @api.depends('school_meal_reservation_id.reservation_date')
@@ -146,7 +159,7 @@ class MealReservationStudent(models.Model):
     num_order = fields.Char("Order Number")    
     student_id = fields.Many2one("res.partner", "Student")
     menu_id = fields.Many2one("school.menu", "Menu")
-    total_pay = fields.Float("Total pay", compute=getTotalPay)
+    total_pay = fields.Float("Total pay", compute=getTotalPay, store=True)
     day_name = fields.Char("Day name", compute=_compute_day_name)
     state = fields.Selection([('Draft', 'Draft'),
                               ('Confirmed', 'Confirmed'),

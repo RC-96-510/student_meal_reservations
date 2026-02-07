@@ -17,6 +17,7 @@
         name="Menu" 
         parent="menu_admin_area" 
         sequence="1"
+        groups="student_meal_reservations.group_admin_menu"
         action="action_school_menu"
       />
     
@@ -31,6 +32,7 @@
         name="Reservations" 
         parent="menu_reservation" 
         sequence="1"
+        groups="student_meal_reservations.group_student_reservation"
         action="action_reservation"
       />
 
@@ -39,6 +41,7 @@
         name="Reservations (Admin)" 
         parent="menu_reservation" 
         sequence="2"
+        groups="student_meal_reservations.group_student_reservation_admin"
         action="action_reservation_admin"
       />
 
