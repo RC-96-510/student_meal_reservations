@@ -45,6 +45,11 @@
         <field name="name">Access menu creacion de Menus</field>
         <field name="category_id" ref="module_student_meal_reservations_module"/>
       </record>
+
+      <record id="group_parent_user" model="res.groups">
+        <field name="name">Parent User</field>
+        <field name="category_id" ref="module_student_meal_reservations_module"/>
+      </record>
     <!--menus-->
 
   </data>

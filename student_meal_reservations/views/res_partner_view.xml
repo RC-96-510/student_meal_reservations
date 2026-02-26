@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_partner_form_inherit_permitir_credito" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.permitir_credito</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='es_alumno']" position="after">
+                    <field 
+                        name="permitir_credito"
+                        attrs="{'invisible': [('es_alumno', '=', False)]}"
+                        widget="boolean_toggle"
+                    />
+                </xpath>
+            </field>
+        </record>
+
+        <!-- Vista Tree para estudiantes filtrados por usuario -->
+        <record id="view_res_partner_tree_alumnos" model="ir.ui.view">
+            <field name="name">res.partner.tree.alumnos</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field 
+                        name="permitir_credito"
+                        widget="boolean_toggle"
+                    />
+                    <field name="family_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista Form para estudiantes -->
+        <record id="view_res_partner_form_alumnos" model="ir.ui.view">
+            <field name="name">res.partner.form.alumnos</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header/>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="1"/>
+                            </group>
+                            <group>
+                                <field 
+                                    name="permitir_credito"
+                                    widget="boolean_toggle"
+                                />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Información del alumno" >
+                                <group>
+                                    <group>
+                                        <field 
+                                            name="citizenship" 
+                                            readonly="1"
+                                        />
+                                        <field 
+                                            name="genero" 
+                                            readonly="1"
+                                        />
+                                        <field 
+                                            name="codigo_estudiante" 
+                                            readonly="1"
+                                        />
+                                    </group>
+                                    <group>
+                                        <field 
+                                            name="birthdate" 
+                                            readonly="1"
+                                        />
+                                        <field 
+                                            name="family_id" 
+                                            readonly="1"
+                                            options="{'no_create': True, 'no_open': True}"
+                                        />
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción para vista de Alumnos -->
+        <record id="action_alumnos" model="ir.actions.act_window">
+            <field name="name">Alumnos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_ids" eval="[(5, 0, 0), (0, 0, {'view_mode': 'tree', 'view_id': ref('view_res_partner_tree_alumnos')}), (0, 0, {'view_mode': 'form', 'view_id': ref('view_res_partner_form_alumnos')})]"/>
+            <field name="domain">[('family_id.related_user_id', '=', uid)]</field>
+            <field name="context">{'create': False}</field>
+        </record>
+    </data>
+</odoo>

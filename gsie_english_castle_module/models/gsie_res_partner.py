@@ -20,6 +20,7 @@ class ResPartner(models.Model):
     subscription_ids = fields.One2many('sale.subscription', 'partner_id', string="Suscripciones")  # Relación inversa
     category_id = fields.Many2one("product.category", string="Categoría", related="grado_id.category_id")
     es_alumno = fields.Boolean(string="Alumno")
+    permitir_credito = fields.Boolean(string="Permitir Crédito")
     
     def action_retirar(self):
         # Cambiar el estado del partner a 'withdraw'

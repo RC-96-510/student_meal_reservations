@@ -16,6 +16,7 @@
                 <xpath expr="//field[@name='vat']" position="after">
                     
                     <field name="es_alumno"/>
+                    <field name="permitir_credito"/>
                     
 
                 </xpath>

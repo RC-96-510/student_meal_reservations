@@ -46,10 +46,19 @@
       />
 
       <menuitem 
+        id="menu_alumnos" 
+        name="Alumnos" 
+        parent="menu_reservation" 
+        sequence="3"
+        groups="student_meal_reservations.group_student_reservation"
+        action="action_alumnos"
+      />
+
+      <menuitem 
         id="menu_student_orders" 
         name="Student Orders" 
         parent="menu_reservation" 
-        sequence="3"
+        sequence="4"
         action="action_school_meal_student_order"
       />
     

@@ -6,3 +6,4 @@ from . import menu
 from . import product_category
 from . import product_product
 from . import gsie_family
+from . import res_partner

@@ -32,6 +32,7 @@
         'views/product_category.xml',
         'views/product_product.xml',
         'views/gsie_family.xml',
+        'views/res_partner_view.xml',
         'views/menu.xml',
         #'views/topup_views.xml',            # ⬅️ NEW: admin credit top-ups
 
