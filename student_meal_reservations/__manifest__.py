@@ -10,7 +10,7 @@
     'website': "https://english-castle.com",
     'category': 'Education',
     'license': 'LGPL-3',
-    'depends': ['base', 'stock', 'gsie_english_castle_module'],
+    'depends': ['base', 'stock', 'gsie_english_castle_module', 'point_of_sale'],
     'data': [
         # Security
         'security/security.xml',
@@ -34,6 +34,7 @@
         'views/gsie_family.xml',
         'views/res_partner_view.xml',
         'views/menu.xml',
+        'views/credit_agreement_wizard.xml',
         #'views/topup_views.xml',            # ⬅️ NEW: admin credit top-ups
 
         # Views - website

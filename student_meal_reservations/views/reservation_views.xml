@@ -51,6 +51,13 @@
 
               <field
                 name="family_id"
+                groups="student_meal_reservations.group_student_reservation_admin"
+                options="{'no_open':True, 'no_create':True}"
+                force_save="1"
+              />
+              <field
+                name="family_id"
+                groups="!student_meal_reservations.group_student_reservation_admin"
                 readonly="1"
                 options="{'no_open':True, 'no_create':True}"
                 force_save="1"

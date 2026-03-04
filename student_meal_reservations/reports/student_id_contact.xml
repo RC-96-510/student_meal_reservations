@@ -2,12 +2,12 @@
 <odoo>
 
     <record id="student_id_contact_print" model="ir.actions.report">
-        <field name="name">Student ID</field>
+        <field name="name">Student/Staff ID</field>
         <field name="model">res.partner</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">student_meal_reservations.print_student_id_contact</field>
         <field name="report_file">student_meal_reservations.print_student_id_contact</field>
-        <field name="print_report_name">'Student ID'</field>
+        <field name="print_report_name">'Student/Staff ID'</field>
         <field name="paperformat_id" ref="student_meal_reservations.student_id_paperformat" />
         <field name="binding_model_id" ref="base.model_res_partner"/>
         <field name="binding_type">report</field>
@@ -38,7 +38,7 @@
                                 <span 
                                     style="font-family: 'Limbus';
                                         font-weight: bold;
-                                        font-size: 16pt;
+                                        font-size: 14pt;
                                         color: #B0202A;"
                                 >HOME OF THE STALLIONS</span>
                             </td>
@@ -81,6 +81,14 @@
                                         t-field="o.name"
                                     />
                                 </p>
+                                <p t-if ="o.is_staff" style="margin-bottom:0px; margin-top:0px;text-align:center;">
+                                        <span 
+                                            style="font-family: 'Limbus';
+                                                font-weight: bold;
+                                                font-size: 10pt;
+                                                color: #B0202A;"
+                                        >STAFF</span>
+                                    </p>
                             </td>
                             <td style="width:50%; text-align:right;">
                                 <img 
@@ -96,12 +104,12 @@
                                             font-stretch: condensed;
                                             font-size: 10pt;
                                             color: #008080;"
-                                        t-field="o.codigo_estudiante"
+                                        t-field="o.vat"
                                     />
                                 </p>
                                 <img 
-                                    t-if="o.codigo_estudiante" 
-                                    t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.codigo_estudiante, 600, 120)" 
+                                    t-if="o.vat" 
+                                    t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.vat, 600, 120)" 
                                     style="height:20pt; width:100%;"
                                 />
                             </td>

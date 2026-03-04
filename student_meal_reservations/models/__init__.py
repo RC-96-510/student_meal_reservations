@@ -7,3 +7,5 @@ from . import product_category
 from . import product_product
 from . import gsie_family
 from . import res_partner
+from . import pos_order_line_payment
+from . import credit_agreement_wizard

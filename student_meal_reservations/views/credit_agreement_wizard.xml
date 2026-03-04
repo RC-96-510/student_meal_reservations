@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Credit Agreement Wizard Form View -->
+        <record id="view_credit_agreement_wizard_form" model="ir.ui.view">
+            <field name="name">credit.agreement.wizard.form</field>
+            <field name="model">credit.agreement.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <!-- <div class="o_dialog_sizing" style="width: 800px;"> -->
+                        <sheet>
+                            <div class="alert alert-info" role="alert">
+                                <strong>CONTRATO DE TÉRMINOS Y CONDICIONES</strong>
+                            </div>
+
+                            <div style="height: 600px; overflow-y: auto; border: 1px solid #ddd; padding: 20px; background-color: #f9f9f9; font-size: 12px; line-height: 1.6;">
+                                <h3 style="text-align: center; margin-bottom: 20px;">
+                                    <strong>SERVICIO DE CRÉDITO SEMANAL</strong><br/>
+                                    <strong>ELLIOT'S SHACK</strong>
+                                </h3>
+
+                                <p style="text-align: justify;">
+                                    Entre Elliot's Shack, servicio de alimentación escolar, en adelante denominado EL PROVEEDOR, y el padre, madre o tutor legal del estudiante autorizado, en adelante denominado EL RESPONSABLE, se acuerdan los siguientes términos y condiciones:
+                                </p>
+
+                                <h4><strong>PRIMERA: OBJETO</strong></h4>
+                                <p style="text-align: justify;">
+                                    El presente contrato regula el otorgamiento y uso del servicio de crédito semanal para los consumos realizados por el estudiante en Elliot's Shack.
+                                </p>
+
+                                <h4><strong>SEGUNDA: REQUISITO DE IDENTIFICACIÓN (STUDENT ID)</strong></h4>
+                                <p style="text-align: justify;">
+                                    Para hacer efectivo el servicio de crédito, será obligatorio adquirir el Student ID oficial de English Castle, el cual será el único medio autorizado para registrar y procesar las transacciones de consumo.
+                                </p>
+                                <p style="text-align: justify;">
+                                    El Student ID tendrá un costo de Cien Lempiras (Lps. 100.00) más el quince por ciento (15%) de Impuesto Sobre Ventas (ISV).
+                                </p>
+                                <p style="text-align: justify;">
+                                    El Student ID es personal e intransferible y deberá ser presentado al momento de cada consumo.
+                                </p>
+                                <p style="text-align: justify;">
+                                    EL PROVEEDOR no será responsable por consumos realizados mediante el uso del Student ID asignado al estudiante autorizado.
+                                </p>
+
+                                <h4><strong>TERCERA: REPOSICIÓN DEL STUDENT ID</strong></h4>
+                                <p style="text-align: justify;">
+                                    En caso de pérdida, extravío, daño o deterioro del Student ID, EL RESPONSABLE deberá solicitar su reposición inmediata.
+                                </p>
+                                <p style="text-align: justify;">
+                                    La reposición tendrá el mismo costo establecido para su emisión inicial, es decir, Lps. 100.00 más 15% ISV, salvo que EL PROVEEDOR establezca un costo distinto para reposiciones futuras.
+                                </p>
+                                <p style="text-align: justify;">
+                                    El servicio de crédito podrá ser suspendido hasta que el estudiante cuente nuevamente con su Student ID activo y funcional.
+                                </p>
+
+                                <h4><strong>CUARTA: AUTORIZACIÓN</strong></h4>
+                                <p style="text-align: justify;">
+                                    EL RESPONSABLE autoriza expresamente que su hijo(a) realice consumos bajo la modalidad de crédito durante el período semanal establecido.
+                                </p>
+                                <p style="text-align: justify;">
+                                    La autorización podrá ser revocada únicamente mediante notificación escrita dirigida a EL PROVEEDOR, sin que ello exonere de las obligaciones de pago pendientes.
+                                </p>
+
+                                <h4><strong>QUINTA: VIGENCIA DEL CRÉDITO</strong></h4>
+                                <p style="text-align: justify;">
+                                    El crédito tendrá una vigencia de una (1) semana calendario escolar, comprendida de lunes a viernes de cada semana lectiva.
+                                </p>
+                                <p style="text-align: justify;">
+                                    El crédito no es acumulable ni transferible a períodos posteriores.
+                                </p>
+
+                                <h4><strong>SEXTA: LIQUIDACIÓN Y NOTIFICACIÓN</strong></h4>
+                                <p style="text-align: justify;">
+                                    Al finalizar cada semana, EL PROVEEDOR enviará a EL RESPONSABLE:
+                                </p>
+                                <ul style="text-align: justify;">
+                                    <li>El detalle de los consumos realizados.</li>
+                                    <li>El balance total acumulado.</li>
+                                    <li>Las instrucciones y medios disponibles para efectuar el pago.</li>
+                                </ul>
+                                <p style="text-align: justify;">
+                                    La notificación podrá realizarse mediante correo electrónico, mensajería digital o cualquier otro medio electrónico autorizado, considerándose válida con su envío.
+                                </p>
+
+                                <h4><strong>SÉPTIMA: FORMA Y PLAZO DE PAGO</strong></h4>
+                                <p style="text-align: justify;">
+                                    EL RESPONSABLE se obliga a cancelar el saldo total acumulado antes del inicio de la siguiente semana escolar.
+                                </p>
+                                <p style="text-align: justify;">
+                                    El pago deberá realizarse mediante:
+                                </p>
+                                <ul style="text-align: justify;">
+                                    <li>Transferencia bancaria, o</li>
+                                    <li>Link de pago electrónico proporcionado por EL PROVEEDOR.</li>
+                                </ul>
+                                <p style="text-align: justify;">
+                                    No se aceptarán pagos parciales salvo autorización expresa y escrita de EL PROVEEDOR.
+                                </p>
+
+                                <h4><strong>OCTAVA: INTERESES POR MORA</strong></h4>
+                                <p style="text-align: justify;">
+                                    En caso de que el saldo pendiente no sea cancelado dentro del plazo establecido, el monto adeudado generará automáticamente un interés moratorio del uno por ciento (1%) semanal, calculado proporcionalmente por día de atraso, desde la fecha de vencimiento hasta la fecha de su cancelación total.
+                                </p>
+                                <p style="text-align: justify;">
+                                    El interés moratorio se aplicará sin necesidad de requerimiento previo o notificación adicional.
+                                </p>
+                                <p style="text-align: justify;">
+                                    La generación de intereses no exime a EL RESPONSABLE de la obligación de pagar el capital adeudado, ni limita el derecho de EL PROVEEDOR a suspender el servicio de crédito conforme a lo establecido en el presente contrato.
+                                </p>
+
+                                <h4><strong>NOVENA: SUSPENSIÓN DEL SERVICIO DE CRÉDITO</strong></h4>
+                                <p style="text-align: justify;">
+                                    En caso de incumplimiento en el pago:
+                                </p>
+                                <ul style="text-align: justify;">
+                                    <li>No se extenderá crédito para la siguiente semana.</li>
+                                    <li>El estudiante únicamente podrá realizar compras mediante pago inmediato.</li>
+                                    <li>El servicio podrá reactivarse únicamente cuando el saldo pendiente, incluyendo intereses generados, haya sido cancelado en su totalidad.</li>
+                                </ul>
+
+                                <h4><strong>DÉCIMA: RESPONSABILIDAD</strong></h4>
+                                <p style="text-align: justify;">
+                                    EL RESPONSABLE asume plena y exclusiva responsabilidad por el pago de todos los consumos realizados bajo la modalidad de crédito.
+                                </p>
+
+                                <h4><strong>DÉCIMA PRIMERA: PROTECCIÓN DE DATOS PERSONALES</strong></h4>
+                                <p style="text-align: justify;">
+                                    EL RESPONSABLE autoriza a EL PROVEEDOR a recopilar, almacenar y utilizar los datos personales proporcionados, incluyendo nombre del estudiante, nombre del responsable, información de contacto y registros de consumo, exclusivamente para fines administrativos, operativos, contables y de facturación relacionados con el servicio de crédito.
+                                </p>
+                                <p style="text-align: justify;">
+                                    EL PROVEEDOR se compromete a:
+                                </p>
+                                <ul style="text-align: justify;">
+                                    <li>Utilizar la información únicamente para los fines aquí descritos.</li>
+                                    <li>No compartir los datos con terceros sin autorización, salvo obligación legal.</li>
+                                    <li>Implementar medidas razonables de seguridad para proteger la información.</li>
+                                </ul>
+
+                                <h4><strong>DÉCIMA SEGUNDA: MODIFICACIONES</strong></h4>
+                                <p style="text-align: justify;">
+                                    EL PROVEEDOR se reserva el derecho de modificar los presentes términos y condiciones, notificando previamente a EL RESPONSABLE por medios electrónicos.
+                                </p>
+
+                                <h4><strong>DÉCIMA TERCERA: ACEPTACIÓN</strong></h4>
+                                <p style="text-align: justify;">
+                                    La aprobación del crédito, la adquisición del Student ID y/o la aceptación digital de estos términos constituye manifestación expresa de conformidad con todas las cláusulas aquí establecidas.
+                                </p>
+                            </div>
+
+                            <div style="margin-top: 20px; padding: 15px; background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;">
+                                <p style="margin: 0; color: #856404;">
+                                    <strong>⚠️ Al hacer clic en "Aceptar", usted declara haber leído y estar de acuerdo con todos los términos y condiciones anteriores.</strong>
+                                </p>
+                            </div>
+                            <footer>
+                                <button name="action_accept" string="✓ Aceptar" type="object" class="btn-primary"/>
+                                <button name="action_cancel" string="✕ Cancelar" type="object" class="btn-secondary"/>
+                            </footer>
+                        </sheet>
+                    <!-- </div> -->
+                </form>
+            </field>
+        </record>
+
+        <!-- Action to open the wizard -->
+        <record id="action_credit_agreement_wizard" model="ir.actions.act_window">
+            <field name="name">Acuerdo de Crédito</field>
+            <field name="res_model">credit.agreement.wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

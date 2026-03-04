@@ -12,6 +12,7 @@
                         attrs="{'invisible': [('es_alumno', '=', False)]}"
                         widget="boolean_toggle"
                     />
+                    <field name="is_staff"/>
                 </xpath>
             </field>
         </record>
@@ -26,12 +27,56 @@
                     <field 
                         name="permitir_credito"
                         widget="boolean_toggle"
+                        readonly="1"
                     />
                     <field name="family_id"/>
                 </tree>
             </field>
         </record>
 
+       
+        <!--detalle pos-->
+        <record id="view_pos_order_line_payment_tree" model="ir.ui.view">
+            <field name="name">view_pos_order_line_payment_tree</field>
+            <field name="model">pos.order.line.payment</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="payment_method_id" string="Método de Pago"/>
+                    <field name="order_id" string="Orden"/>
+                    <field name="order_date" string="Fecha"/>
+                    <field name="product_id" string="Producto"/>
+                    <field name="qty" string="Cantidad"/>
+                    <field name="price_unit" string="Precio Unit."/>
+                    <field 
+                        name="price_subtotal_incl" 
+                        string="Total" 
+                        sum="total"
+                    />
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_pos_order_line_payment_search" model="ir.ui.view">
+            <field name="name">view_pos_order_line_payment_search</field>
+            <field name="model">pos.order.line.payment</field>
+            <field name="arch" type="xml">
+                <search string="Search Reservations">
+                    <filter string="Agrupar por método de pago" name="group_payment_method" context="{'group_by': 'payment_method_id'}"/>
+                    <filter string="Agrupar por orden" name="group_order" context="{'group_by': 'order_id'}"/>
+                    <filter string="Agrupar por producto" name="group_product" context="{'group_by': 'product_id'}"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_pos_order_line_payment" model="ir.actions.act_window">
+            <field name="name">Compras en POS</field>
+            <field name="res_model">pos.order.line.payment</field>
+            <field name="search_view_id" ref="view_pos_order_line_payment_search"/>
+            <field name="context">{'group_by': ['payment_method_id']}</field>
+            <field name="view_mode">tree</field>
+        </record>
+
+        <!--detalle pos-->
         <!-- Vista Form para estudiantes -->
         <record id="view_res_partner_form_alumnos" model="ir.ui.view">
             <field name="name">res.partner.form.alumnos</field>
@@ -40,14 +85,35 @@
                 <form>
                     <header/>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button 
+                                name="%(action_pos_order_line_payment)d" 
+                                type="action" 
+                                class="oe_stat_button" 
+                                icon="fa-bars"
+                                string="Compras en POS"
+                            >
+                                
+                            </button>
+                        </div>
                         <group>
                             <group>
                                 <field name="name" readonly="1"/>
                             </group>
                             <group>
+                                <button 
+                                    name="action_show_credit_agreement"
+                                    string="Ver Contrato"
+                                    type="object"
+                                    class="btn-link"
+                                    attrs="{'invisible': [('permitir_credito', '=', True)]}"
+                                />
+
                                 <field 
                                     name="permitir_credito"
                                     widget="boolean_toggle"
+                                    force_save="1"
+                                    attrs="{'readonly': [('permitir_credito', '=', False)]}"
                                 />
                             </group>
                         </group>
@@ -80,6 +146,19 @@
                                         />
                                     </group>
                                 </group>
+                            </page>
+                            <page string="Compras en POS">
+                                <field name="pos_line_payment_ids" readonly="1">
+                                    <tree default_group_by="payment_method_id">
+                                        <field name="payment_method_id" string="Método de Pago"/>
+                                        <field name="order_id" string="Orden"/>
+                                        <field name="order_date" string="Fecha"/>
+                                        <field name="product_id" string="Producto"/>
+                                        <field name="qty" string="Cantidad"/>
+                                        <field name="price_unit" string="Precio Unit."/>
+                                        <field name="price_subtotal_incl" string="Total" sum="Total"/>
+                                    </tree>
+                                </field>
                             </page>
                         </notebook>
                     </sheet>

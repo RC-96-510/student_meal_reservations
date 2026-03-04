@@ -12,3 +12,5 @@ access_school_meal_summary_report,access.school.meal.summary.report,model_school
 access_school_meal_student_order,access.school.meal.student.order,model_school_meal_student_order,group_student_orders,1,1,1,1
 access_school_meal_student_order_detail,access.school.meal.student.order.detail,model_school_meal_student_order_detail,group_student_orders,1,1,1,1
 access_school_meal_student_order_detail_products,access.school.meal.student.order.detail.products,model_school_meal_student_order_detail_products,group_student_orders,1,1,1,1
+access_credit_agreement_wizard,access.credit.agreement.wizard,model_credit_agreement_wizard,,1,1,1,1
+access_pos_order_line_payment,access.pos.order.line.payment,model_pos_order_line_payment,,1,0,0,0

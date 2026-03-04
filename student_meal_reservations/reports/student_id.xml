@@ -2,7 +2,7 @@
 <odoo>
 
     <record id="student_id_paperformat" model="report.paperformat">
-        <field name="name">Student ID</field>
+        <field name="name">Student/Staff ID</field>
         <field name="default" eval="True"/>
         <field name="format">custom</field>
         <field name="page_height">54</field>   
@@ -53,9 +53,9 @@
                             <tr>
                                 <td colspan="2" style="text-align:center;">
                                     <span 
-                                        style="font-family: 'Limbus', 
+                                        style="font-family: 'Limbus';
                                             font-weight: bold;
-                                            font-size: 16pt;
+                                            font-size: 14pt;
                                             color: #B0202A;"
                                     >HOME OF THE STALLIONS</span>
                                 </td>
@@ -98,6 +98,7 @@
                                             t-field="line.name"
                                         />
                                     </p>
+                                    
                                 </td>
                                 <td style="width:50%; text-align:right;">
                                     <img 
@@ -113,12 +114,12 @@
                                                 font-stretch: condensed;
                                                 font-size: 10pt;
                                                 color: #008080;"
-                                            t-field="line.codigo_estudiante"
+                                            t-field="line.vat"
                                         />
                                     </p>
                                     <img 
-                                        t-if="line.codigo_estudiante" 
-                                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', line.codigo_estudiante, 600, 120)" 
+                                        t-if="line.vat" 
+                                        t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', line.vat, 600, 120)" 
                                         style="height:20pt; width:100%;"
                                     />
                                 </td>
